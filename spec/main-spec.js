@@ -12,7 +12,7 @@ describe('scanDeclarations', function() {
     const path = Path.join(__dirname, 'fixtures', givenPath) + '.js'
     const expectedPath = Path.join(Path.dirname(path), `${Path.basename(path).slice(0, -3)}.expected.json`)
     const contents = (await readFile(path, 'utf8')).trim()
-    const imports = scanDeclarations({ filePath: path, fileContents: contents }, () => true)
+    const imports = scanDeclarations(path, contents, () => true)
     if (write) {
       FS.writeFile(expectedPath, JSON.stringify(imports, null, 2))
     } else {

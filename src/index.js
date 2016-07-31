@@ -6,7 +6,8 @@ import { getBinding } from './helpers'
 import type { Declaration } from './types'
 
 export function scanDeclarations(
-  { filePath, fileContents }: { filePath: string, fileContents: string },
+  filePath: string,
+  fileContents: string,
   nodeInRange: ((node: Object) => boolean)
 ): Array<Declaration> {
   let ast
