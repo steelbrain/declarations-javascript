@@ -13,7 +13,11 @@
     "url": "git+ssh://git@github.com/steelbrain/resolve.git"
   },
   "keywords": [
-    "source", "code", "analysis", "declarations", "atom"
+    "source",
+    "code",
+    "analysis",
+    "declarations",
+    "atom"
   ],
   "author": "steelbrain",
   "license": "MIT",
@@ -25,8 +29,13 @@
     "babel-preset-steelbrain": "^4.0.0",
     "eslint-config-steelbrain": "^1.0.1",
     "jasmine-fix": "^1.0.0",
+    "sb-promisify": "^1.3.0",
     "ucompiler": "^3.1.8",
     "ucompiler-plugin-babel": "^3.1.1"
   },
-  "dependencies": { }
+  "dependencies": {
+    "babel-traverse": "^6.12.0",
+    "babylon": "^6.8.4",
+    "jasmine-fix": "^1.0.0"
+  }
 }
