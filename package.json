@@ -1,6 +1,6 @@
 {
   "name": "declarations-js",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Scan declarations in Javascript sources",
   "main": "lib/index.js",
   "scripts": {
