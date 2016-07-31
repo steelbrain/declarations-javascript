@@ -1,11 +1,11 @@
-# declarations-js-node
+# declarations-javascript
 
-`declarations-js-node` is a Node.js module that can scan javascript sources and return the list of declarations. It's useful for creating packages that jump to declarations for IDEs/TextEditors.
+`declarations-javascript` is a Node.js module that can scan javascript sources and return the list of declarations. It's useful for creating packages that jump to declarations for IDEs/TextEditors.
 
 ## Installation
 
 ```
-npm install --save declarations-js-node
+npm install --save declarations-javascript
 ```
 
 ## Features
