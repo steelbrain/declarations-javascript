@@ -1,6 +1,6 @@
 {
-  "name": "declarations-js",
-  "version": "1.0.0",
+  "name": "declarations-javascript",
+  "version": "0.0.0",
   "description": "Scan declarations in Javascript sources",
   "main": "lib/index.js",
   "scripts": {
@@ -22,9 +22,9 @@
   "author": "steelbrain",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/steelbrain/declarations-js-node/issues"
+    "url": "https://github.com/steelbrain/declarations-javascript/issues"
   },
-  "homepage": "https://github.com/steelbrain/declarations-js-node#readme",
+  "homepage": "https://github.com/steelbrain/declarations-javascript#readme",
   "devDependencies": {
     "babel-preset-steelbrain": "^4.0.0",
     "eslint-config-steelbrain": "^1.0.1",
