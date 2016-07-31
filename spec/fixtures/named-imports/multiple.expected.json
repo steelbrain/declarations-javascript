@@ -3,17 +3,98 @@
     "name": "xx",
     "position": {
       "start": {
-        "line": 3,
-        "column": 0
+        "line": 1,
+        "column": 14
       },
       "end": {
-        "line": 3,
-        "column": 2
+        "line": 1,
+        "column": 16
       }
     },
     "source": {
       "name": "x",
       "filePath": "file-x",
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 24
+        },
+        "end": {
+          "line": 1,
+          "column": 32
+        }
+      }
+    }
+  },
+  {
+    "name": "yy",
+    "position": {
+      "start": {
+        "line": 2,
+        "column": 14
+      },
+      "end": {
+        "line": 2,
+        "column": 16
+      }
+    },
+    "source": {
+      "name": "y",
+      "filePath": "file-y",
+      "position": {
+        "start": {
+          "line": 2,
+          "column": 24
+        },
+        "end": {
+          "line": 2,
+          "column": 32
+        }
+      }
+    }
+  },
+  {
+    "name": "someOtherName",
+    "position": {
+      "start": {
+        "line": 3,
+        "column": 9
+      },
+      "end": {
+        "line": 3,
+        "column": 22
+      }
+    },
+    "source": {
+      "name": "someOtherName",
+      "filePath": "some-module",
+      "position": {
+        "start": {
+          "line": 3,
+          "column": 30
+        },
+        "end": {
+          "line": 3,
+          "column": 43
+        }
+      }
+    }
+  },
+  {
+    "name": "xx",
+    "position": {
+      "start": {
+        "line": 4,
+        "column": 0
+      },
+      "end": {
+        "line": 4,
+        "column": 2
+      }
+    },
+    "source": {
+      "name": null,
+      "filePath": null,
       "position": {
         "start": {
           "line": 1,
@@ -30,17 +111,17 @@
     "name": "yy",
     "position": {
       "start": {
-        "line": 4,
+        "line": 5,
         "column": 0
       },
       "end": {
-        "line": 4,
+        "line": 5,
         "column": 2
       }
     },
     "source": {
-      "name": "y",
-      "filePath": "file-y",
+      "name": null,
+      "filePath": null,
       "position": {
         "start": {
           "line": 2,

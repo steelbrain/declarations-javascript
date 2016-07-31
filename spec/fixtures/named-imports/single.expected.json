@@ -3,17 +3,71 @@
     "name": "anotherName",
     "position": {
       "start": {
-        "line": 2,
-        "column": 0
+        "line": 1,
+        "column": 23
       },
       "end": {
-        "line": 2,
-        "column": 11
+        "line": 1,
+        "column": 34
       }
     },
     "source": {
       "name": "moduleName",
       "filePath": "file-moduleName",
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 42
+        },
+        "end": {
+          "line": 1,
+          "column": 59
+        }
+      }
+    }
+  },
+  {
+    "name": "someName",
+    "position": {
+      "start": {
+        "line": 2,
+        "column": 9
+      },
+      "end": {
+        "line": 2,
+        "column": 17
+      }
+    },
+    "source": {
+      "name": "someName",
+      "filePath": "some-module",
+      "position": {
+        "start": {
+          "line": 2,
+          "column": 25
+        },
+        "end": {
+          "line": 2,
+          "column": 38
+        }
+      }
+    }
+  },
+  {
+    "name": "anotherName",
+    "position": {
+      "start": {
+        "line": 3,
+        "column": 0
+      },
+      "end": {
+        "line": 3,
+        "column": 11
+      }
+    },
+    "source": {
+      "name": null,
+      "filePath": null,
       "position": {
         "start": {
           "line": 1,
