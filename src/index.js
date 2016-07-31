@@ -5,9 +5,9 @@ import { parse } from 'babylon'
 import { getBinding } from './helpers'
 import type { Declaration } from './types'
 
-function scan(
-  { filePath, fileContents, visibleRange }: { filePath: string, fileContents: string, visibleRange: Range },
-  nodeInRange: ((node: Object) => boolean),
+export function scanDeclarations(
+  { filePath, fileContents }: { filePath: string, fileContents: string },
+  nodeInRange: ((node: Object) => boolean)
 ): Array<Declaration> {
   let ast
   const toReturn = []
@@ -94,5 +94,3 @@ function scan(
 
   return toReturn
 }
-
-module.exports = scan
