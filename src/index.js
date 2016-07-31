@@ -53,7 +53,7 @@ export function scanDeclarations(
       let declarationPath = null
       const declarationPosition = declaration.identifier.loc
 
-      if (declaration.path.type === 'ImportDefaultSpecifier') {
+      if (declaration.path.type === 'ImportDefaultSpecifier' || declaration.path.type === 'ImportNamespaceSpecifier') {
         declarationPath = declaration.path.parent.source.value
       } else if (declaration.path.type === 'ImportSpecifier') {
         declarationPath = declaration.path.parent.source.value

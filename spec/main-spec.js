@@ -21,6 +21,9 @@ describe('scanDeclarations', function() {
     }
   }
 
+  it('works on import *', async function() {
+    await validateDeclarations('import-star')
+  })
   it('works on default imports', async function() {
     await validateDeclarations('default-imports/single')
     await validateDeclarations('default-imports/multiple')
