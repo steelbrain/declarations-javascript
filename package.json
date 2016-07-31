@@ -1,0 +1,32 @@
+{
+  "name": "declarations-js",
+  "version": "0.0.0",
+  "description": "Scan declarations in Javascript sources",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "apm test",
+    "lint": "eslint .",
+    "compile": "ucompiler go"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/steelbrain/resolve.git"
+  },
+  "keywords": [
+    "source", "code", "analysis", "declarations", "atom"
+  ],
+  "author": "steelbrain",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/steelbrain/declarations-js-node/issues"
+  },
+  "homepage": "https://github.com/steelbrain/declarations-js-node#readme",
+  "devDependencies": {
+    "babel-preset-steelbrain": "^4.0.0",
+    "eslint-config-steelbrain": "^1.0.1",
+    "jasmine-fix": "^1.0.0",
+    "ucompiler": "^3.1.8",
+    "ucompiler-plugin-babel": "^3.1.1"
+  },
+  "dependencies": { }
+}

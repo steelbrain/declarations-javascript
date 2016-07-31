@@ -1,0 +1,7 @@
+.idea
+.flowconfig
+node_modules
+.DS_Store
+*.log
+/src
+/spec
