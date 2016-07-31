@@ -43,7 +43,7 @@ export function scanDeclarations(
 
 import FS from 'fs'
 import promisify from 'sb-promisify'
-import { scanDeclarations } from 'declarations-js'
+import { scanDeclarations } from 'declarations-javascript'
 
 const readFile = promisify(FS.readFile)
 
