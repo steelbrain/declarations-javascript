@@ -29,4 +29,12 @@ describe('scanDeclarations', function() {
     await validateDeclarations('default-requires/single')
     await validateDeclarations('default-requires/multiple')
   })
+  it('works on named imports', async function() {
+    await validateDeclarations('named-imports/single')
+    await validateDeclarations('named-imports/multiple')
+  })
+  it('works on named requires', async function() {
+    await validateDeclarations('named-requires/single')
+    await validateDeclarations('named-requires/multiple')
+  })
 })

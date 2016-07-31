@@ -44,6 +44,9 @@ export function scanDeclarations(
       const declaration = getBinding(path.scope, path.node.name)
       if (!declaration) {
         return
+      } else if (path.node === declaration.identifier) {
+        // For named requires/imports, exclude self
+        return
       }
 
       let declarationName = null
@@ -72,7 +75,7 @@ export function scanDeclarations(
             const entry = node.id.properties[i]
             if (declarationPosition && entry.loc && entry.loc.line === declarationPosition.line && entry.loc.column === declarationPosition.column) {
               if (entry.key && entry.key.type === 'Identifier') {
-                declarationName = entry.key
+                declarationName = entry.key.name
               }
               break
             }

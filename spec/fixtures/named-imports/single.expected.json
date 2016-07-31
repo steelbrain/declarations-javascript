@@ -1,0 +1,29 @@
+[
+  {
+    "name": "anotherName",
+    "position": {
+      "start": {
+        "line": 2,
+        "column": 0
+      },
+      "end": {
+        "line": 2,
+        "column": 11
+      }
+    },
+    "source": {
+      "name": "moduleName",
+      "filePath": "file-moduleName",
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 23
+        },
+        "end": {
+          "line": 1,
+          "column": 34
+        }
+      }
+    }
+  }
+]

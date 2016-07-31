@@ -1,0 +1,56 @@
+[
+  {
+    "name": "xx",
+    "position": {
+      "start": {
+        "line": 3,
+        "column": 0
+      },
+      "end": {
+        "line": 3,
+        "column": 2
+      }
+    },
+    "source": {
+      "name": "x",
+      "filePath": "file-x",
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 11
+        },
+        "end": {
+          "line": 1,
+          "column": 13
+        }
+      }
+    }
+  },
+  {
+    "name": "yy",
+    "position": {
+      "start": {
+        "line": 4,
+        "column": 0
+      },
+      "end": {
+        "line": 4,
+        "column": 2
+      }
+    },
+    "source": {
+      "name": "y",
+      "filePath": "file-y",
+      "position": {
+        "start": {
+          "line": 2,
+          "column": 11
+        },
+        "end": {
+          "line": 2,
+          "column": 13
+        }
+      }
+    }
+  }
+]
