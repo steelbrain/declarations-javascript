@@ -42,64 +42,40 @@ export function scanDeclarations(
       if (!path.node.loc || !nodeInRange(path.node) || path.node.source.type !== 'StringLiteral') {
         return
       }
-      const importSpecifiers = path.node.specifiers
-      for (let i = 0, length = importSpecifiers.length; i < length; ++i) {
-        const specifier = importSpecifiers[i]
-        toReturn.push({
-          name: specifier.local.name,
-          position: specifier.local.loc,
-          source: {
-            name: specifier.imported && specifier.imported.type === 'Identifier' ? specifier.imported.name : null,
-            filePath: path.node.source.value,
-            position: path.node.source.loc,
-          },
-        })
-      }
+      const node = path.node
+      toReturn.push({
+        name: null,
+        position: node.source.loc,
+        source: {
+          name: null,
+          filePath: node.source.value,
+          position: node.source.loc,
+        },
+      })
     },
-    VariableDeclarator(path: Object) {
+    CallExpression(path: Object) {
       if (!path.node.loc || !nodeInRange(path.node)) {
         return
       }
       const node = path.node
       if (!(
-        node.init &&
-        node.init.type === 'CallExpression' &&
-        node.init.callee.type === 'Identifier' &&
-        node.init.callee.name === 'require' &&
-        node.init.arguments.length &&
-        node.init.arguments[0].type === 'StringLiteral'
+        node.callee.type === 'Identifier' &&
+        node.callee.name === 'require' &&
+        node.arguments.length &&
+        node.arguments[0].type === 'StringLiteral'
       )) {
         return
       }
-      const argument = node.init.arguments[0]
-      if (node.id.type === 'ObjectPattern') {
-        for (let i = 0, length = node.id.properties.length; i < length; ++i) {
-          const property = node.id.properties[i]
-          if (property.type !== 'ObjectProperty') {
-            // Ignore super deep requires
-            continue
-          }
-          toReturn.push({
-            name: property.value.name,
-            position: property.value.loc,
-            source: {
-              name: property.key.name,
-              filePath: argument.value,
-              position: argument.loc,
-            },
-          })
-        }
-      } else if (node.id.type === 'Identifier') {
-        toReturn.push({
-          name: node.id.name,
-          position: node.id.loc,
-          source: {
-            name: null,
-            filePath: argument.value,
-            position: argument.loc,
-          },
-        })
-      }
+      const argument = node.arguments[0]
+      toReturn.push({
+        name: null,
+        position: argument.loc,
+        source: {
+          name: null,
+          filePath: argument.value,
+          position: argument.loc,
+        },
+      })
     },
     ReferencedIdentifier(path: Object) {
       if (!path.node.loc || !nodeInRange(path.node)) {

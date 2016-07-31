@@ -1,14 +1,14 @@
 [
   {
-    "name": "moduleName",
+    "name": null,
     "position": {
       "start": {
         "line": 1,
-        "column": 7
+        "column": 23
       },
       "end": {
         "line": 1,
-        "column": 17
+        "column": 40
       }
     },
     "source": {

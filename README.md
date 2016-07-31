@@ -12,20 +12,20 @@ npm install --save declarations-javascript
 
 ### Scanner
 
-- Supports latest JS syntax
-- Supports filePath in `import * from x`
-- Supports filePath in named and default `require`s and `import`s
+- Supports jumping to declarations
+- Supports latest JS syntax with Babel Parser
+- Supports jumping to other `import`ed or `require`d files
 
 ## API
 
 ```js
 type Declaration = {
-  name: string,
+  name: ?string,
   position: { start: { line: number, column: number }, end: { line: number, column: number } },
   source: {
     name: ?string,
     filePath: ?string,
-    position: { start: { line: number, column: number }, end: { line: number, column: number } },
+    position: ?{ start: { line: number, column: number }, end: { line: number, column: number } },
   }
 }
 

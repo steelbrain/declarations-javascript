@@ -1,18 +1,18 @@
 [
   {
-    "name": "xx",
+    "name": null,
     "position": {
       "start": {
         "line": 1,
-        "column": 11
+        "column": 26
       },
       "end": {
         "line": 1,
-        "column": 13
+        "column": 34
       }
     },
     "source": {
-      "name": "x",
+      "name": null,
       "filePath": "file-x",
       "position": {
         "start": {
@@ -27,19 +27,19 @@
     }
   },
   {
-    "name": "yy",
+    "name": null,
     "position": {
       "start": {
         "line": 2,
-        "column": 11
+        "column": 26
       },
       "end": {
         "line": 2,
-        "column": 13
+        "column": 34
       }
     },
     "source": {
-      "name": "y",
+      "name": null,
       "filePath": "file-y",
       "position": {
         "start": {
@@ -54,19 +54,19 @@
     }
   },
   {
-    "name": "z",
+    "name": null,
     "position": {
       "start": {
         "line": 3,
-        "column": 8
+        "column": 22
       },
       "end": {
         "line": 3,
-        "column": 9
+        "column": 30
       }
     },
     "source": {
-      "name": "z",
+      "name": null,
       "filePath": "file-z",
       "position": {
         "start": {
