@@ -38,6 +38,69 @@ export function scanDeclarations(
   }
 
   traverse(ast, {
+    ImportDeclaration(path: Object) {
+      if (!path.node.loc || !nodeInRange(path.node) || path.node.source.type !== 'StringLiteral') {
+        return
+      }
+      const importSpecifiers = path.node.specifiers
+      for (let i = 0, length = importSpecifiers.length; i < length; ++i) {
+        const specifier = importSpecifiers[i]
+        toReturn.push({
+          name: specifier.local.name,
+          position: specifier.local.loc,
+          source: {
+            name: specifier.imported && specifier.imported.type === 'Identifier' ? specifier.imported.name : null,
+            filePath: path.node.source.value,
+            position: path.node.source.loc,
+          },
+        })
+      }
+    },
+    VariableDeclarator(path: Object) {
+      if (!path.node.loc || !nodeInRange(path.node)) {
+        return
+      }
+      const node = path.node
+      if (!(
+        node.init &&
+        node.init.type === 'CallExpression' &&
+        node.init.callee.type === 'Identifier' &&
+        node.init.callee.name === 'require' &&
+        node.init.arguments.length &&
+        node.init.arguments[0].type === 'StringLiteral'
+      )) {
+        return
+      }
+      const argument = node.init.arguments[0]
+      if (node.id.type === 'ObjectPattern') {
+        for (let i = 0, length = node.id.properties.length; i < length; ++i) {
+          const property = node.id.properties[i]
+          if (property.type !== 'ObjectProperty') {
+            // Ignore super deep requires
+            continue
+          }
+          toReturn.push({
+            name: property.value.name,
+            position: property.value.loc,
+            source: {
+              name: property.key.name,
+              filePath: argument.value,
+              position: argument.loc,
+            },
+          })
+        }
+      } else if (node.id.type === 'Identifier') {
+        toReturn.push({
+          name: node.id.name,
+          position: node.id.loc,
+          source: {
+            name: null,
+            filePath: argument.value,
+            position: argument.loc,
+          },
+        })
+      }
+    },
     ReferencedIdentifier(path: Object) {
       if (!path.node.loc || !nodeInRange(path.node)) {
         return
@@ -46,51 +109,16 @@ export function scanDeclarations(
       if (!declaration) {
         return
       } else if (path.node === declaration.identifier) {
-        // For named requires/imports, exclude self
+        // Ignore require expressions here, they'll need paths
         return
       }
-
-      let declarationName = null
-      let declarationPath = null
-      const declarationPosition = declaration.identifier.loc
-
-      if (declaration.path.type === 'ImportDefaultSpecifier' || declaration.path.type === 'ImportNamespaceSpecifier') {
-        declarationPath = declaration.path.parent.source.value
-      } else if (declaration.path.type === 'ImportSpecifier') {
-        declarationPath = declaration.path.parent.source.value
-        declarationName = declaration.path.node.imported.name
-      } else if (declaration.path.type === 'VariableDeclarator') {
-        const node = declaration.path.node
-        if (
-          node.init &&
-          node.init.type === 'CallExpression' &&
-          node.init.callee.type === 'Identifier' &&
-          node.init.callee.name === 'require' &&
-          node.init.arguments.length &&
-          node.init.arguments[0].type === 'StringLiteral'
-        ) {
-          declarationPath = node.init.arguments[0].value
-        }
-        if (declarationPath && node.id.type === 'ObjectPattern') {
-          for (let i = 0, length = node.id.properties.length; i < length; ++i) {
-            const entry = node.id.properties[i]
-            if (declarationPosition && entry.loc && entry.loc.line === declarationPosition.line && entry.loc.column === declarationPosition.column) {
-              if (entry.key && entry.key.type === 'Identifier') {
-                declarationName = entry.key.name
-              }
-              break
-            }
-          }
-        }
-      }
-
       toReturn.push({
         name: path.node.name,
         position: path.node.loc,
         source: {
-          name: declarationName,
-          filePath: declarationPath,
-          position: declarationPosition,
+          name: null,
+          filePath: null,
+          position: declaration.identifier.loc,
         },
       })
     },

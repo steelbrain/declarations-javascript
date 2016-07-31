@@ -1,4 +1,5 @@
 const { x: xx } = require('file-x')
 const { y: yy } = require('file-y')
+const { z } = require('file-z')
 xx()
 yy()

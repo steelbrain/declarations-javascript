@@ -8,7 +8,7 @@ import { scanDeclarations } from '../'
 const readFile = require('sb-promisify')(FS.readFile)
 
 describe('scanDeclarations', function() {
-  async function validateDeclarations(givenPath, write = false) {
+  async function validateDeclarations(givenPath, write) {
     const path = Path.join(__dirname, 'fixtures', givenPath) + '.js'
     const expectedPath = Path.join(Path.dirname(path), `${Path.basename(path).slice(0, -3)}.expected.json`)
     const contents = (await readFile(path, 'utf8')).trim()
