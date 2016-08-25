@@ -3,9 +3,10 @@
 import FS from 'fs'
 import Path from 'path'
 import { it } from 'jasmine-fix'
+import promisify from 'sb-promisify'
 import { scanDeclarations } from '../'
 
-const readFile = require('sb-promisify')(FS.readFile)
+const readFile = promisify(FS.readFile)
 
 describe('scanDeclarations', function() {
   async function validateDeclarations(givenPath, write = false) {
