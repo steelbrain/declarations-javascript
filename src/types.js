@@ -9,3 +9,7 @@ export type Declaration = {
     position: ?{ start: { line: number, column: number }, end: { line: number, column: number } },
   }
 }
+
+export type Options = {
+  scanImportNames?: boolean
+}

@@ -2,13 +2,14 @@
 
 import traverse from 'babel-traverse'
 import { parse } from 'babylon'
-import { getBinding } from './helpers'
-import type { Declaration } from './types'
+import { getBinding, scanSpecifiersInImportStatement } from './helpers'
+import type { Declaration, Options } from './types'
 
 export function scanDeclarations(
   filePath: string,
   fileContents: string,
-  nodeInRange: ((node: Object) => boolean)
+  nodeInRange: ((node: Object) => boolean),
+  options: Options = {}
 ): Array<Declaration> {
   let ast
   const toReturn = []
@@ -49,9 +50,24 @@ export function scanDeclarations(
         source: {
           name: null,
           filePath: node.source.value,
-          position: node.source.loc,
+          position: null,
         },
       })
+      if (options.scanImportNames) {
+        const specifiers = scanSpecifiersInImportStatement(node)
+        for (let i = 0, length = specifiers.length; i < length; i++) {
+          const specifier = specifiers[i]
+          toReturn.push({
+            name: specifier.name,
+            position: specifier.loc,
+            source: {
+              name: null,
+              filePath: node.source.value,
+              position: null,
+            },
+          })
+        }
+      }
     },
     CallExpression(path: Object) {
       if (!path.node.loc || !nodeInRange(path.node)) {
