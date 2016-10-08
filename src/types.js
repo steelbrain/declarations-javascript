@@ -11,5 +11,4 @@ export type Declaration = {
 }
 
 export type Options = {
-  scanImportNames?: boolean
 }
