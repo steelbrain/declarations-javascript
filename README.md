@@ -57,5 +57,9 @@ readFile('./test.js', 'utf8').then(function(fileContents) {
 })
 ```
 
+## Notes
+
+This package uses the Positions from Babel, therefore it's lines are 1-indexed and columns are 0-indexed.
+
 ## License
 This project is licensed under the terms of MIT License. See the LICENSE file for more info.
