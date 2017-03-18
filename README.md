@@ -1,5 +1,7 @@
 # declarations-javascript
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/steelbrain/declarations-javascript.svg)](https://greenkeeper.io/)
+
 `declarations-javascript` is a Node.js module that can scan javascript sources and return the list of declarations. It's useful for creating packages that jump to declarations for IDEs/TextEditors.
 
 ## Installation
