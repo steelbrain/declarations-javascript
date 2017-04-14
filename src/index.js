@@ -8,7 +8,7 @@ import type { Declaration } from './types'
 export function scanDeclarations(
   filePath: string,
   fileContents: string,
-  nodeInRange: ((node: Object) => boolean)
+  nodeInRange: ((node: Object) => boolean),
 ): Array<Declaration> {
   let ast
   const toReturn = []
